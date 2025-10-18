@@ -5,9 +5,10 @@ const jobSchema = new mongoose.Schema({
     description: { type: String, required: true },
     requirements: { type: String, required: true },
     location: { type: String },
+    category: { type: String} ,
     type: {
         type: String,
-        enum: ["Remote", "Full-time", "Part-time", "Internship", "Contract"],
+        enum: ["Remote", "Full-Time", "Part-time", "Internship", "Contract"],
         required: true
     },
     company: { type: mongoose.Schema.Types.ObjectId, ref: "User", required: true }, // Employer

@@ -7,7 +7,7 @@ const SavedJob = require('../models/SavedJob');
 exports.createJob = async (req, res) => {
     try {
       if (req.user.role !== "employer") {
-        return res.status(403).json({ message: "Only employers can create jobs" });
+        return res.status(403).json({ message: "Only employers can post jobs" });
       }
 
       const job = await Job.create({ ...req.body, company: req.user._id });
@@ -54,7 +54,7 @@ exports.getJobs = async (req, res) => {
     }
     try {
         const jobs = await Job.find(query).populate(
-            "employer", 
+            "company", 
             "name companyName companyLogo"
         );
         
@@ -126,7 +126,7 @@ exports.getJobById = async (req, res) => {
         const { userId } = req.query;
 
         const job = await Job.findById(req.params.id).populate(
-            "employer", 
+            "company", 
             "name companyName companyLogo"
         );
 
@@ -134,7 +134,7 @@ exports.getJobById = async (req, res) => {
             return res.status(404).json({ message: "Job not found" });
         }
 
-        let appliedStatus = null;
+        let applicationStatus = null;
 
         if (userId) {
             const application = await Application.findOne({
@@ -143,13 +143,13 @@ exports.getJobById = async (req, res) => {
             }).select('status');
 
             if (application) {
-                appliedStatus = application.status;
+                applicationStatus = application.status;
             }
         }
 
         res.json({
             ...job.toObject(),
-            appliedStatus,
+            applicationStatus,
         });
 
     } catch (err) {
@@ -201,7 +201,7 @@ exports.toggleCloseJob = async (req, res) => {
 
         // Check if the user is the employer of the job
         if (job.company.toString() !== req.user._id.toString()) {
-            return res.status(403).json({ message: "You are not authorized to toggle this job" });
+            return res.status(403).json({ message: "You are not authorized to close this job" });
         }
 
         job.isClosed = !job.isClosed;

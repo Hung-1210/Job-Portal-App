@@ -34,6 +34,7 @@ exports.getMyApplications = async (req, res) => {
         const apps = await Application.find({ applicant: req.user._id })
             .populate('job', 'title company location type')
             .sort({ createdAt: -1 });
+            
         res.json(apps);
     } catch (err) {
         res.status(500).json({ message: err.message });
@@ -62,7 +63,7 @@ exports.getApplicantsForJob = async (req, res) => {
 exports.getApplicationById = async (req, res) => {
     try {
        const app = await Application.findById(req.params.id)
-            .populate('job', 'title company location type')
+            .populate('job', 'title')
             .populate('applicant', 'name email avatar resume');
 
         if (!app) {

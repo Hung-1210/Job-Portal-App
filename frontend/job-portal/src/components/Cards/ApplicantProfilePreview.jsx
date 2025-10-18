@@ -31,7 +31,7 @@ const ApplicantProfilePreview = ({
         
         if (response.status === 200) {
             // Update local state after successful update
-            selectedApplicant({...selectedApplicant, status: newStatus});
+            setSelectedApplicant({...selectedApplicant, status: newStatus});
             toast.success("Application status updated successfully")
         }
     } catch (err) {
@@ -87,7 +87,7 @@ const ApplicantProfilePreview = ({
                     </h5>
                     <p className="text-gray-700">{selectedApplicant.job.title}</p>
                     <p className="text-gray-600 text-sm mt-1">
-                        {selectedApplicant.job.location} * {selectedApplicant.job.type}
+                        {selectedApplicant.job.location} • {selectedApplicant.job.type}
                     </p>
                 </div>
 

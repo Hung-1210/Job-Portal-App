@@ -46,7 +46,7 @@ const UserProfile = () => {
   };
 
   const handleImageChange = (e, type) => {
-    const file = e.target.file[0];
+    const file = e.target.file?.[0];
     if (file) {
       // Create preview URL
       const previewUrl = URL.createObjectURL(file);

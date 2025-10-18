@@ -238,11 +238,12 @@ const ManageJobs = () => {
             {/* Result Summary */}
             <div className="my-4">
               <p className="text-sm text-gray-600">
-                Showing {paginatedJobs.length} of {filteredAndSortedJobs.length}{" "} job
+                Showing {paginatedJobs.length} of {filteredAndSortedJobs.length}{" "}
+                jobs
               </p>
             </div>
 
-
+            {/* {JSON.stringify(filteredAndSortedJobs)} */}
 
             {/* Table */}
             <div className="bg-white/80 backdrop-blur-sm rounded-2xl border border-white/20 overflow-hidden">
@@ -438,7 +439,7 @@ const ManageJobs = () => {
                     Previous
                   </button>
                   {Array.from({ length: totalPages }, (_, i) => i + 1).map(
-                    (page) => {
+                    (page) => (
                       <button
                         key={page}
                         onClick={() => setCurrentPage(page)}
@@ -450,7 +451,7 @@ const ManageJobs = () => {
                       >
                         {page}
                       </button>
-                    }
+                    )
                   )}
                   <button 
                     onClick={() => 

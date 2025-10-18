@@ -294,7 +294,7 @@ const JobPostingForm = () => {
             required
           />
 
-            {/* Description */}
+            {/* Requirements */}
           <TextareaField
             label="Requirements"
             id="requirements"

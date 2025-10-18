@@ -1,6 +1,6 @@
 import React from 'react'
 
-const StatusBadge = () => {
+const StatusBadge = ({status}) => {
     const statusConfig = {
         Applied: "bg-gray-100 text-gray-800",
         Interview: "bg-yellow-100 text-yellow-800",

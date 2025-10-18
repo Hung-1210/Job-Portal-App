@@ -28,6 +28,8 @@ const SavedJobs = () => {
     try {
       await axiosInstance.delete(API_PATHS.JOBS.UNSAVE_JOB(jobId));
       toast.success("Job removed successfully!")
+
+      getSavedJobs();
     } catch (err) {
       toast.error("Something went wrong! try again later")
     }

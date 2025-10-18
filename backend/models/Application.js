@@ -7,7 +7,7 @@ const applicationSchema = new mongoose.Schema(
         resume : { type: String }, // can store uploaded version or link
         status: {
             type: String,
-            enum: ["applied", "In Review", "Rejected", "Accepted"],
+            enum: ["Applied", "In Review", "Rejected", "Accepted"],
             default: "Applied",
         },
     },

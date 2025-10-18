@@ -36,7 +36,7 @@ const SelectField = ({
                 : "border-gray-300 focus:border-blue-500 focus:ring-blue-500"
             } focus-outline-none focus:ring-2 focus:ring-opacity-20 appearance-none bg-white`}
         >
-            <options value="">{placeholder}</options>
+            <option value="">{placeholder}</option>
             {options.map((option) => (
                 <option key={option.value} value={option.value}>
                     {option.label}
@@ -51,7 +51,7 @@ const SelectField = ({
               >
                 <path
                   fillRule="evenodd"
-                  d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                  d="M5.293 7.293a1 1 0 0 1 1.414 0L10 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414l-4 4a1 1 0 0 1-1.414 0l-4-4a1 1 0 0 1 0-1.414z"
                   clipRule="evenodd"
                 /> 
             </svg>
