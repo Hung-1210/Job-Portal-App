@@ -44,11 +44,11 @@ const FilterContent = ({
     onToggle={() => toggleSection("jobType")}
   >
     <div className="space-y-3">
-      {JOB_TYPES.map((type) => {
+      {JOB_TYPES.map((type) => (
         <label key={type.value} className="flex items-center cursor-pointer">
           <input 
             type="checkbox"
-            className="rounded border-gray-300 text-blue-600 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:rin-opacity-50"
+            className="rounded border-gray-300 text-blue-600 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
             checked={filters?.type === type.value}
             onChange={(e) => 
               handleFilterChange("type", e.target.checked ? type.value : "")
@@ -56,7 +56,7 @@ const FilterContent = ({
           />
           <span className="ml-3 text-gray-700 font-medium">{type.value}</span>
         </label>
-      })}
+      ))}
     </div>
   </FilterSection>
 
@@ -74,11 +74,11 @@ const FilterContent = ({
     onToggle={() => toggleSection("categories")}
   >
   <div className="space-y-3">
-    {CATEGORIES.map((type) => {
+    {CATEGORIES.map((type) => (
       <label key={type.value} className="flex items-center cursor-pointer">
         <input
           type="checkbox"
-          className="rounded border-gray-300 text-blue-600 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:rin-opacity-50"
+          className="rounded border-gray-300 text-blue-600 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
           checked={filters?.category === type.value}
           onChange={(e) => 
             handleFilterChange("category", e.target.checked ? type.value : "")
@@ -86,7 +86,7 @@ const FilterContent = ({
         />
         <span className="ml-3 text-gray-700 font-medium">{type.value}</span>
       </label>
-    })}
+    ))}
   </div>
   </FilterSection>
   </>

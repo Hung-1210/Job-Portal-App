@@ -331,7 +331,7 @@ const ManageJobs = () => {
                             <button 
                               className="flex items-center text-sm text-blue-600 hover:text-blue-800 font-semibold transition-colors duration-200 hover:bg-blue-50 px-2 py-1 rounded-lg"
                               onClick={() => 
-                                navigate("/applicants", {
+                                navigate("/applications", {
                                   state: { jobId: job.id },
                                 })
                               }

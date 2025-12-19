@@ -130,11 +130,11 @@ const ApplicantProfilePreview = ({
                       disabled={loading}
                       className="w-full border border-gray-300 rounded-lg p-2 focus:ring-blue-500 focus:border-blue-500"
                     >
-                      {statusOptions.map((status) => {
+                      {statusOptions.map((status) => (
                         <option key={status} value={status}>
                             {status}
                         </option>
-                      })}   
+                      ))}   
                     </select>
                     {loading && (
                         <p className="text-xs text-gray-500 mt-1">Updating status...</p>
