@@ -100,7 +100,7 @@ exports.getJobsEmployer = async (req, res) => {
         }
 
         // Get all jobs posted by the employer
-        const jobs = await Job.find({ employer: userId })
+        const jobs = await Job.find({ company: userId })
         .populate("company", "name companyName companyLogo")
         .lean(); // .lean() makes jobs a plain JavaScript object so we can add new fields
 
@@ -205,9 +205,14 @@ exports.toggleCloseJob = async (req, res) => {
         }
 
         job.isClosed = !job.isClosed;
-        await job.save();
-        res.json({ message: "Job marked as closed" });
+        const updatedJob = await job.save();
+        
+        res.json({ 
+            message: `Job ${job.isClosed ? 'closed' : 'opened'} successfully`,
+            job: updatedJob 
+        });
     } catch (err) {
+        console.error("Error in toggleCloseJob:", err);
         res.status(500).json({ message: err.message });
     }
 };
